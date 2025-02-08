@@ -1,0 +1,1190 @@
+/* Import Google Font Fallback */
+@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;700&display=swap');
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply Font to All Text */
+body {
+    font-family: "Tamil Sangan MN", "Mukta Malar", sans-serif;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    
+
+}
+
+/* Apply Background Color + Pattern to All Sections Except Hero */
+body {
+    background-color: var(--secondary-color); /* Set your background color */
+    background-image: url('pattern.png'); /* Overlay the pattern */
+    background-size: 150px; /* Adjust pattern size */
+    background-repeat: repeat; /* Ensure the pattern repeats */
+    background-blend-mode: overlay; /* Blend the pattern with the background */
+}
+
+/* Exclude Hero Section */
+.hero {
+    background: url('hero.png') center/cover no-repeat !important; /* Keep the hero background clean */
+}
+
+
+
+/* Theme Colors */
+:root {
+    --background-color: rgba(215,211,194,255); /* Light beige */
+    --primary-color: rgba(109,1,26,255); /* Red */
+    --secondary-color: rgba(3,55,49,255); /* Deep green */
+    --hover-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Header Styling */
+.main-header {
+    position: fixed;
+    width: 100%;
+    background-color: var(--background-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1450px;
+    margin: 0 auto;
+}
+
+/* Logo Section */
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.cafe-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+/* Navigation Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Tamil Sangan MN", "Mukta Malar", sans-serif;
+    font-weight: bold;
+}
+
+p, a, li, span, button {
+    font-family: "Tamil Sangan MN", "Mukta Malar", sans-serif;
+    font-size: 1rem;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hidden on larger screens */
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    margin-right: 20px; /* Adjust away from the edge */
+}
+
+.hamburger .line {
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Show Hamburger Menu */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Dropdown Menu */
+    .nav-links {
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: var(--background-color);
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateY(-100%);
+        opacity: 0;
+        z-index: 999;
+        transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-links li {
+        text-align: center;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+    }
+}
+
+/* Responsive Design - Make Logo Smaller on Phones */
+@media (max-width: 768px) {
+    .logo {
+        height: 50px; /* Reduce logo size on smaller screens */
+    }
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 90vh; /* Almost full screen */
+    background: url('hero.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Blur Effect on Background */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    backdrop-filter: blur(5px); /* Blurs the background */
+}
+
+/* Hero Content */
+.hero-content {
+    position: relative;
+    color: var(--background-color); /* Matches theme */
+    font-family: "Tamil Sangan MN", "Mukta Malar", sans-serif;
+    text-transform: uppercase;
+}
+
+/* Hero Text */
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Highlighted Span */
+.hero-content h1 span {
+    color: var(--primary-color); /* Red color */
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem; /* Adjust for mobile */
+    }
+}
+
+/* Who We Are Section */
+.who-we-are {
+    background-color: var(--primary-color); /* Primary Background */
+    color: var(--background-color);
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Layout Container */
+.who-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 2rem;
+}
+
+/* Left Side: Text */
+.who-text {
+    flex: 1;
+    text-align: left;
+}
+
+.who-text h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.who-text h2 span {
+    color: var(--secondary-color); /* Green Highlight */
+}
+
+.who-text p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+}
+
+/* Right Side: Animated Luxury Cards */
+.who-animation {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+/* Luxurious Memory Cards */
+.memory-card {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05)); /* Silky effect */
+    color: var(--background-color);
+    padding: 1.8rem 2.8rem;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-in-out forwards;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Individual Animations with Delay */
+.card1 {
+    animation-delay: 0.3s;
+}
+.card2 {
+    animation-delay: 0.6s;
+}
+.card3 {
+    animation-delay: 0.9s;
+}
+
+/* Silky Glow Effect */
+.memory-card::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 70%);
+    transition: all 0.8s ease-in-out;
+    transform: rotate(45deg);
+    opacity: 0.5;
+}
+
+/* Light Reflection Effect */
+.memory-card::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Hover Effect */
+.memory-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 15px 50px rgba(255, 215, 0, 0.5); /* Gold glow effect */
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+/* Activate Light Reflection on Hover */
+.memory-card:hover::after {
+    opacity: 0.3;
+}
+
+/* Smooth Fade In Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .who-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .who-text {
+        text-align: center;
+    }
+
+    .who-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .who-text p {
+        font-size: 1.1rem;
+    }
+
+    .memory-card {
+        font-size: 1.3rem;
+        padding: 1.5rem 2.2rem;
+    }
+}
+
+
+/* Menu Section */
+.menu-section {
+    background-color: var(--secondary-color); /* Dark Green */
+    color: var(--background-color);
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Flexbox Layout */
+.menu-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 2rem;
+}
+
+/* Left Side: Text */
+.menu-text {
+    flex: 1;
+    text-align: left;
+}
+
+.menu-text h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.menu-text h2 span {
+    color: var(--primary-color); /* Highlighted Red */
+}
+
+.menu-text p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+/* Animated Menu Button */
+.menu-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), rgba(232, 0, 40, 0.9));
+    color: var(--background-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(232, 0, 40, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Animation */
+.menu-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0px 15px 30px rgba(232, 0, 40, 0.5);
+}
+
+/* Right Side: Image */
+.menu-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-image img {
+    width: 500px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Image Hover Effect */
+.menu-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .menu-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu-text {
+        text-align: center;
+    }
+
+    .menu-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .menu-text p {
+        font-size: 1.1rem;
+    }
+
+    .menu-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .menu-image img {
+        width: 90%;
+    }
+}
+
+/* Opening Hours Section */
+.opening-hours {
+    background-color: var(--primary-color); /* Alternating Background */
+    color: var(--background-color);
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Layout Container */
+.hours-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 2rem;
+}
+
+/* Left Side: Text */
+.hours-text {
+    flex: 1;
+    text-align: left;
+}
+
+.hours-text h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hours-text h2 span {
+    color: var(--secondary-color); /* Green Highlight */
+}
+
+.hours-text p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+/* Book Table Button */
+.book-table-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--secondary-color), rgba(0, 71, 54, 0.9));
+    color: var(--background-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 71, 54, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button Hover */
+.book-table-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0px 15px 30px rgba(0, 71, 54, 0.5);
+}
+/* Right Side: Animated Clock */
+.hours-graphic {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Clock Design */
+.clock {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.1));
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Clock Numbers */
+.clock-number {
+    position: absolute;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--background-color);
+    text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.5); /* Gold glow effect */
+    transform: translate(-50%, -50%);
+}
+
+/* Position Numbers Like a Real Clock */
+.clock-number:nth-child(1) { transform: rotate(30deg) translate(90px) rotate(-30deg); }
+.clock-number:nth-child(2) { transform: rotate(60deg) translate(90px) rotate(-60deg); }
+.clock-number:nth-child(3) { transform: rotate(90deg) translate(90px) rotate(-90deg); }
+.clock-number:nth-child(4) { transform: rotate(120deg) translate(90px) rotate(-120deg); }
+.clock-number:nth-child(5) { transform: rotate(150deg) translate(90px) rotate(-150deg); }
+.clock-number:nth-child(6) { transform: rotate(180deg) translate(90px) rotate(-180deg); }
+.clock-number:nth-child(7) { transform: rotate(210deg) translate(90px) rotate(-210deg); }
+.clock-number:nth-child(8) { transform: rotate(240deg) translate(90px) rotate(-240deg); }
+.clock-number:nth-child(9) { transform: rotate(270deg) translate(90px) rotate(-270deg); }
+.clock-number:nth-child(10) { transform: rotate(300deg) translate(90px) rotate(-300deg); }
+.clock-number:nth-child(11) { transform: rotate(330deg) translate(90px) rotate(-330deg); }
+.clock-number:nth-child(12) { transform: rotate(0deg) translate(90px) rotate(0deg); }
+
+/* Clock Hand Animation */
+.clock-hand {
+    position: absolute;
+    width: 5px;
+    height: 80px;
+    background-color: var(--background-color);
+    top: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%) rotate(0deg);
+    animation: rotateClock 5s linear infinite;
+}
+
+/* Clock Center */
+.clock-center {
+    width: 12px;
+    height: 12px;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.8); /* Gold center glow */
+}
+
+/* Clock Animation */
+@keyframes rotateClock {
+    from {
+        transform: translate(-50%, -100%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -100%) rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hours-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hours-text {
+        text-align: center;
+    }
+
+    .hours-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .hours-text p {
+        font-size: 1.1rem;
+    }
+
+    .book-table-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .clock {
+        width: 200px;
+        height: 200px;
+    }
+
+    .clock-number {
+        font-size: 1rem; /* Adjust number size on small screens */
+    }
+}
+
+/* Section Divider */
+.section-divider {
+    height: 1px; /* Thin line */
+    width: 100%; /* Full width */
+    background-color: var(--background-color); /* Brown color */
+    opacity: 0.6; /* Slight transparency for subtlety */
+}
+
+/* Location Section */
+.location-section {
+    background-color: var(--secondary-color); /* Alternating Secondary Background */
+    color: var(--background-color);
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Layout Container */
+.location-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 2rem;
+}
+
+/* Left Side: Text */
+.location-text {
+    flex: 1;
+    text-align: left;
+}
+
+.location-text h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.location-text h2 span {
+    color: var(--primary-color); /* Red Highlight */
+}
+
+.location-text p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+}
+
+/* Animated Google Map */
+.location-map {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-in-out forwards;
+}
+
+.google-map {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Floating Effect */
+.google-map:hover {
+    transform: scale(1.05);
+}
+
+/* Directions Button */
+.directions-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), rgba(232, 0, 40, 0.9));
+    color: var(--background-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(232, 0, 40, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button Hover */
+.directions-button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0px 15px 30px rgba(232, 0, 40, 0.5);
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .location-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .location-text {
+        text-align: center;
+    }
+
+    .location-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .location-text p {
+        font-size: 1.1rem;
+    }
+
+    .google-map {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+/* Gallery Section */
+.gallery-section {
+    background-color: var(--primary-color); /* Alternating Background */
+    color: var(--background-color);
+    padding: 6rem 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Container */
+.gallery-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Section Heading */
+.gallery-container h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.gallery-container h2 span {
+    color: var(--secondary-color); /* Green Highlight */
+}
+
+.gallery-container p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Gallery Toggle Button - Hidden on Desktop */
+.gallery-toggle-button {
+    display: none; /* Hide by default */
+}
+
+/* Show Button Only on Mobile */
+@media (max-width: 768px) {
+    .gallery-toggle-button {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--secondary-color), rgba(0, 71, 54, 0.9));
+        color: var(--background-color);
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 10px 20px rgba(0, 71, 54, 0.3);
+        border: none;
+        cursor: pointer;
+        outline: none;
+        margin-bottom: 20px;
+    }
+
+    /* Button Hover Effect */
+    .gallery-toggle-button:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0px 15px 30px rgba(0, 71, 54, 0.5);
+    }
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 0 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.5s ease-in-out forwards;
+}
+
+/* Hide Gallery Grid on Mobile Initially */
+@media (max-width: 768px) {
+    .gallery-grid {
+        display: none;
+    }
+}
+
+/* Show Gallery When Button is Clicked */
+.gallery-grid.active {
+    display: grid;
+}
+
+/* Gallery Items */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Image Styling */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Zoom Effect */
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 15px 30px rgba(255, 215, 0, 0.5); /* Gold Glow Effect */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Lightbox Image */
+.lightbox-img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(255, 215, 0, 0.5);
+    animation: scaleIn 0.3s ease-in-out;
+}
+
+/* Lightbox Close Button */
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Show Lightbox */
+.lightbox.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scale In Animation */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--background-color); /* Alternating Background */
+    color: var(--primary-color);
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Layout Container */
+.contact-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    gap: 2rem;
+}
+
+/* Left Side: Text */
+.contact-text {
+    flex: 1;
+    text-align: left;
+}
+
+.contact-text h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.contact-text h2 span {
+    color: var(--primary-color); /* Red Highlight */
+}
+
+.contact-text p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    color: var(--primary-color);
+}
+
+/* Right Side: Contact Info */
+.contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Contact Items */
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.contact-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 15px 30px rgba(255, 215, 0, 0.5); /* Gold Glow Effect */
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Social Links */
+.social-link {
+    font-size: 2rem;
+    color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Social Icon Hover Effects */
+.social-link:hover {
+    transform: scale(1.2);
+}
+
+.social-link i {
+    transition: color 0.3s ease-in-out;
+}
+
+/* Instagram */
+.social-link:nth-child(1) i {
+    color: #E1306C;
+}
+
+.social-link:nth-child(1):hover i {
+    color: #ff66a3;
+}
+
+/* WhatsApp */
+.social-link:nth-child(2) i {
+    color: #25D366;
+}
+
+.social-link:nth-child(2):hover i {
+    color: #6fffbf;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-text {
+        text-align: center;
+    }
+
+    .contact-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .contact-text p {
+        font-size: 1.1rem;
+    }
+
+    .contact-info {
+        align-items: center;
+    }
+
+    .contact-item {
+        font-size: 1.1rem;
+    }
+
+    .social-link {
+        font-size: 1.8rem;
+    }
+}
+
+
