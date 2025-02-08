@@ -12,26 +12,14 @@
 body {
     font-family: "Tamil Sangan MN", "Mukta Malar", sans-serif;
     background-color: var(--background-color);
-    color: var(--secondary-color);
+    color: var(--background-color);
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal overflow */
     
 
 }
 
-/* Apply Background Color + Pattern to All Sections Except Hero */
-body {
-    background-color: var(--secondary-color); /* Set your background color */
-    background-image: url('pattern.png'); /* Overlay the pattern */
-    background-size: 150px; /* Adjust pattern size */
-    background-repeat: repeat; /* Ensure the pattern repeats */
-    background-blend-mode: overlay; /* Blend the pattern with the background */
-}
 
-/* Exclude Hero Section */
-.hero {
-    background: url('hero.png') center/cover no-repeat !important; /* Keep the hero background clean */
-}
 
 
 
