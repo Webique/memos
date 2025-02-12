@@ -262,7 +262,7 @@ p, a, li, span, button {
 }
 
 .who-text h2 span {
-    color: var(--secondary-color); /* Green Highlight */
+    color: var(--secondary-color); /* Gold Highlight */
 }
 
 .who-text p {
@@ -272,96 +272,97 @@ p, a, li, span, button {
     max-width: 600px;
 }
 
-/* Right Side: Animated Luxury Cards */
+/* Right Side: Floating Luxury Elements */
 .who-animation {
     flex: 1;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Floating Container */
+.floating-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Reduce spacing between elements */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    perspective: 1000px;
+}
+
+/* Floating Elements (Now Smaller) */
+.floating-element {
+    width: 200px; /* Reduced size */
+    height: 200px; /* Reduced size */
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    box-shadow: 0px 8px 25px rgba(255, 215, 0, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    position: relative;
-}
-
-/* Luxurious Memory Cards */
-.memory-card {
-    font-size: 1.5rem;
-    font-weight: bold;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05)); /* Silky effect */
-    color: var(--background-color);
-    padding: 1.8rem 2.8rem;
-    border-radius: 25px;
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0px 12px 40px rgba(0, 0, 0, 0.35);
+    justify-content: center;
     text-align: center;
-    letter-spacing: 1px;
+    padding: 15px;
+    transform: rotateY(10deg) rotateX(5deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease-in-out;
     position: relative;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1.5s ease-in-out forwards;
-    transition: all 0.4s ease-in-out;
 }
 
-/* Individual Animations with Delay */
-.card1 {
-    animation-delay: 0.3s;
-}
-.card2 {
-    animation-delay: 0.6s;
-}
-.card3 {
-    animation-delay: 0.9s;
+/* Floating Icons */
+.floating-element i {
+    font-size: 2.5rem; /* Adjusted icon size */
+    color: var(--secondary-color);
+    margin-bottom: 8px;
 }
 
-/* Silky Glow Effect */
-.memory-card::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 70%);
-    transition: all 0.8s ease-in-out;
-    transform: rotate(45deg);
-    opacity: 0.5;
+/* Floating Title */
+.floating-element h3 {
+    font-size: 1.3rem; /* Adjusted text size */
+    font-weight: bold;
+    color: var(--background-color);
+    margin-bottom: 8px;
 }
 
-/* Light Reflection Effect */
-.memory-card::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.1), transparent);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+/* Floating Text */
+.floating-element p {
+    font-size: 1rem;
+    color: var(--background-color);
+    opacity: 0.8;
+    line-height: 1.5;
 }
 
-/* Hover Effect */
-.memory-card:hover {
-    transform: scale(1.08);
-    box-shadow: 0px 15px 50px rgba(255, 215, 0, 0.5); /* Gold glow effect */
-    border-color: rgba(255, 215, 0, 0.5);
+/* Glowing Hover Effect */
+.floating-element:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0px 15px 40px rgba(255, 215, 0, 0.5);
 }
 
-/* Activate Light Reflection on Hover */
-.memory-card:hover::after {
-    opacity: 0.3;
-}
-
-/* Smooth Fade In Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
+/* Floating Animation */
+@keyframes floatUp {
+    0% {
         transform: translateY(0);
     }
+    50% {
+        transform: translateY(-7px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Apply Floating Effect */
+.floating-element:nth-child(1) {
+    animation: floatUp 4s ease-in-out infinite;
+}
+.floating-element:nth-child(2) {
+    animation: floatUp 4s ease-in-out infinite 0.5s;
+}
+.floating-element:nth-child(3) {
+    animation: floatUp 4s ease-in-out infinite 1s;
 }
 
 /* Responsive Design */
@@ -383,11 +384,28 @@ p, a, li, span, button {
         font-size: 1.1rem;
     }
 
-    .memory-card {
-        font-size: 1.3rem;
-        padding: 1.5rem 2.2rem;
+    .floating-container {
+        gap: 20px;
+    }
+
+    .floating-element {
+        width: 170px; /* Smaller for mobile */
+        height: 170px; /* Smaller for mobile */
+    }
+
+    .floating-element i {
+        font-size: 2rem; /* Adjust icon size for mobile */
+    }
+
+    .floating-element h3 {
+        font-size: 1.2rem;
+    }
+
+    .floating-element p {
+        font-size: 0.9rem;
     }
 }
+
 
 
 /* Menu Section */
@@ -1012,54 +1030,52 @@ p, a, li, span, button {
     }
 }
 
-/* Contact Section */
-.contact-section {
-    background-color: var(--background-color); /* Alternating Background */
+/* Simplistic Footer Section */
+.footer-section {
+    background-color: var(--background-color);
     color: var(--primary-color);
-    padding: 6rem 2rem;
+    padding: 4rem 2rem 2rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    position: relative;
+    width: 100%;
 }
 
-/* Layout Container */
-.contact-container {
+/* Footer Container */
+.footer-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    max-width: 1200px;
+    max-width: 1000px;
     width: 100%;
     gap: 2rem;
+    padding-bottom: 1rem;
 }
 
-/* Left Side: Text */
-.contact-text {
+/* Left Side: Brand & Info */
+.footer-brand {
     flex: 1;
     text-align: left;
 }
 
-.contact-text h2 {
-    font-size: 3rem;
+.footer-brand h2 {
+    font-size: 2.2rem;
     font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.contact-text h2 span {
-    color: var(--primary-color); /* Red Highlight */
-}
-
-.contact-text p {
-    font-size: 1.3rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    max-width: 600px;
     color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.footer-brand p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--primary-color);
+    opacity: 0.8;
+    max-width: 300px;
 }
 
 /* Right Side: Contact Info */
-.contact-info {
+.footer-contact {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -1072,107 +1088,71 @@ p, a, li, span, button {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 8px 15px;
     border-radius: 10px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.08);
     color: var(--primary-color);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
 }
 
-/* Hover Effect */
 .contact-item:hover {
     transform: scale(1.05);
-    box-shadow: 0px 15px 30px rgba(255, 215, 0, 0.5); /* Gold Glow Effect */
+    box-shadow: 0px 8px 20px rgba(255, 215, 0, 0.4);
 }
 
 /* Social Media Icons */
 .social-icons {
     display: flex;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
-/* Social Links */
 .social-link {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
     transition: all 0.3s ease-in-out;
 }
 
-/* Social Icon Hover Effects */
 .social-link:hover {
     transform: scale(1.2);
+    color: var(--secondary-color);
 }
 
-.social-link i {
-    transition: color 0.3s ease-in-out;
-}
-
-/* Instagram */
-.social-link:nth-child(1) i {
-    color: #E1306C;
-}
-
-.social-link:nth-child(1):hover i {
-    color: #ff66a3;
-}
-
-/* WhatsApp */
-.social-link:nth-child(2) i {
-    color: #25D366;
-}
-
-.social-link:nth-child(2):hover i {
-    color: #6fffbf;
-}
-
-/* Fade In Animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Footer Bottom */
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    opacity: 0.6;
 }
 
 /* Responsive Design */
 @media (max-width: 992px) {
-    .contact-container {
+    .footer-container {
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
 
-    .contact-text {
+    .footer-brand {
         text-align: center;
     }
 
-    .contact-text h2 {
-        font-size: 2.5rem;
-    }
-
-    .contact-text p {
-        font-size: 1.1rem;
-    }
-
-    .contact-info {
+    .footer-contact {
         align-items: center;
     }
 
     .contact-item {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .social-link {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 }
-
-
