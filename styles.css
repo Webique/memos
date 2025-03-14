@@ -1,35 +1,74 @@
 /* Import Google Font Fallback */
 @import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;700&display=swap');
 
+/* Import Lato */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+/* Title Text Styling */
+h1, h2, h3 {
+    font-family: 'Signature', 'Great Vibes', cursive !important;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+
+
+
 /* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif !important;
+}
+
+/* STOP Overriding Icons */
+i, .icon, [class*="fa-"], [class*="icon-"], .material-icons, .material-symbols-outlined {
+    font-family: inherit !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+}
+
+/* Restore FontAwesome and Material Icons */
+[class*="fa-"]::before,
+[class*="icon-"]::before,
+.material-icons::before,
+.material-symbols-outlined::before {
+    font-family: 'FontAwesome', 'Material Icons' !important;
 }
 
 /* Apply Font to All Text */
 body {
-    font-family: "Tamil Sangan MN", "Mukta Malar", sans-serif;
+    font-family: 'Lato', sans-serif !important;
     background-color: var(--background-color);
     color: var(--background-color);
     line-height: 1.6;
     overflow-x: hidden; /* Prevent horizontal overflow */
-    
-
 }
 
+/* Typography Enhancements */
+h1, h2, h3, h4, h5, h6, p, a, li, span, button, input, textarea, label {
+    font-family: 'Lato', sans-serif !important;
+    font-weight: normal;
+}
 
-
-
+/* Ensure All Pseudo-elements Use Lato */
+*::before,
+*::after {
+    font-family: 'Lato', sans-serif !important;
+}
 
 /* Theme Colors */
 :root {
-    --background-color: rgba(215,211,194,255); /* Light beige */
-    --primary-color: rgba(109,1,26,255); /* Red */
-    --secondary-color: rgba(3,55,49,255); /* Deep green */
+    --background-color: #B02730; /* Updated Red */
+    --primary-color: rgba(215,211,194,255); /* Light beige */
+    --secondary-color: #00312B; /* Updated Deep Green */
     --hover-color: rgba(255, 255, 255, 0.8);
 }
+
 
 /* Header Styling */
 .main-header {
@@ -296,9 +335,9 @@ p, a, li, span, button {
 .floating-element {
     width: 200px; /* Reduced size */
     height: 200px; /* Reduced size */
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--primary-color); /* Changed to red */
     border-radius: 50%;
-    box-shadow: 0px 8px 25px rgba(255, 215, 0, 0.3);
+    box-shadow: 0px 8px 25px rgba(176, 39, 48, 0.3); /* Match red color glow */
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     display: flex;
@@ -314,14 +353,14 @@ p, a, li, span, button {
 
 /* Floating Icons */
 .floating-element i {
-    font-size: 2.5rem; /* Adjusted icon size */
-    color: var(--secondary-color);
+    font-size: 2.5rem;
+    color: var(--background-color); /* Make icon color contrast with red */
     margin-bottom: 8px;
 }
 
 /* Floating Title */
 .floating-element h3 {
-    font-size: 1.3rem; /* Adjusted text size */
+    font-size: 1.3rem;
     font-weight: bold;
     color: var(--background-color);
     margin-bottom: 8px;
@@ -338,7 +377,7 @@ p, a, li, span, button {
 /* Glowing Hover Effect */
 .floating-element:hover {
     transform: translateY(-10px) scale(1.05);
-    box-shadow: 0px 15px 40px rgba(255, 215, 0, 0.5);
+    box-shadow: 0px 15px 40px rgba(176, 39, 48, 0.5); /* Match red glow */
 }
 
 /* Floating Animation */
@@ -405,6 +444,7 @@ p, a, li, span, button {
         font-size: 0.9rem;
     }
 }
+
 
 
 
