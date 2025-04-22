@@ -74,11 +74,14 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, button, input, textarea, label {
 .main-header {
     position: fixed;
     width: 100%;
-    background-color: var(--background-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
 }
+
 
 .main-header .container {
     display: flex;
@@ -108,6 +111,31 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, button, input, textarea, label {
     text-transform: uppercase;
 }
 
+/* Header Styling */
+.main-header {
+    position: fixed;
+    width: 100%;
+    background-color: transparent;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    padding: 0.5rem 0;
+}
+
+/* Logo Section */
+.logo {
+    height: 130px; /* Bigger logo on page load */
+    width: auto;
+    margin-right: 10px;
+    transition: height 0.3s ease;
+}
+
+/* Logo shrink on scroll */
+.main-header.scrolled .logo {
+    height: 60px;
+}
+
 /* Navigation Menu */
 .nav-links {
     list-style: none;
@@ -123,7 +151,7 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, button, input, textarea, label {
 .nav-links a {
     text-decoration: none;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 800; /* Bolder text */
     letter-spacing: 0.5px;
     color: var(--primary-color);
     transition: all 0.3s ease-in-out;
@@ -147,11 +175,11 @@ p, a, li, span, button {
 
 /* Hamburger Menu */
 .hamburger {
-    display: none; /* Hidden on larger screens */
+    display: none;
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
-    margin-right: 20px; /* Adjust away from the edge */
+    margin-right: 20px;
 }
 
 .hamburger .line {
@@ -164,12 +192,10 @@ p, a, li, span, button {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Show Hamburger Menu */
     .hamburger {
         display: flex;
     }
 
-    /* Dropdown Menu */
     .nav-links {
         flex-direction: column;
         position: fixed;
@@ -199,14 +225,12 @@ p, a, li, span, button {
     .nav-links a {
         font-size: 1.5rem;
     }
-}
 
-/* Responsive Design - Make Logo Smaller on Phones */
-@media (max-width: 768px) {
     .logo {
-        height: 50px; /* Reduce logo size on smaller screens */
+        height: 60px; /* Slightly smaller logo for mobile */
     }
 }
+
 
 /* Hero Section */
 .hero {
@@ -758,7 +782,7 @@ p, a, li, span, button {
 
 /* Location Section */
 .location-section {
-    background-color: var(--secondary-color); /* Alternating Secondary Background */
+    background-color: var(--primary-color); /* Alternating Secondary Background */
     color: var(--background-color);
     padding: 6rem 2rem;
     display: flex;
@@ -889,7 +913,7 @@ p, a, li, span, button {
 
 /* Gallery Section */
 .gallery-section {
-    background-color: var(--primary-color); /* Alternating Background */
+    background-color: var(--secondary-color); /* Alternating Background */
     color: var(--background-color);
     padding: 6rem 2rem;
     text-align: center;

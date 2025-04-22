@@ -82,3 +82,11 @@ galleryToggleButton.addEventListener('click', () => {
     galleryGrid.classList.toggle('active');
     galleryToggleButton.textContent = galleryGrid.classList.contains('active') ? "Hide Gallery" : "View Gallery";
 });
+window.addEventListener("scroll", () => {
+    const header = document.querySelector(".main-header");
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
