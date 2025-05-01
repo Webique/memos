@@ -1266,6 +1266,7 @@ p, a, li, span, button {
     .hero-slogan {
       font-size: 2rem;
       letter-spacing: 1px;
+      font-family: 'Signature', cursive !important;
     }
   }
   
