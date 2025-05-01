@@ -18,6 +18,13 @@ h1, h2, h3 {
     letter-spacing: 1px;
 }
 
+@font-face {
+    font-family: 'TheSignature';
+    src: url('fonts/Thesignature.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
 
 
 
@@ -1250,9 +1257,7 @@ p, a, li, span, button {
 /* Hero Slogan */
 /* Hero Slogan */
 .hero-slogan {
-    font-family: 'Satisfy' !important;
-
-
+    font-family: 'TheSignature' !important;
     font-size: 3.2rem;
     font-weight: normal;
     color: var(--background-color);
@@ -1260,6 +1265,7 @@ p, a, li, span, button {
     letter-spacing: 0.5px;
     text-transform: none;
   }
+  
   
   
   
