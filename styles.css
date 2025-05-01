@@ -71,26 +71,18 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, button, input, textarea, label {
 
 
 /* Header Styling */
-.main-header {
-    position: fixed;
-    width: 100%;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    backdrop-filter: none !important;
-    z-index: 1000;
-    transition: all 0.3s ease-in-out;
-}
 
 
 .main-header .container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     padding: 1rem 2rem;
     max-width: 1450px;
     margin: 0 auto;
+    gap: 2rem; /* Prevent overlap */
 }
+
 
 /* Logo Section */
 .logo-section {
@@ -117,19 +109,58 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, button, input, textarea, label {
     width: 100%;
     background-color: transparent;
     backdrop-filter: blur(6px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
     z-index: 1000;
-    transition: all 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     padding: 0.5rem 0;
 }
+.main-header.scrolled {
+    background-color: var(--background-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 
 /* Logo Section */
-.logo {
-    height: 130px; /* Bigger logo on page load */
-    width: auto;
-    margin-right: 10px;
-    transition: height 0.3s ease;
+/* Logo in hero before scroll */
+/* Hero Logo: center above slogan, visible before scroll */
+.hero-logo {
+    display: block;
+    margin: 0 auto 30px auto;
+    height: 130px;
+    transition: all 0.4s ease;
+  }
+  
+  /* Nav Logo: hidden before scroll */
+  .nav-logo {
+    visibility: hidden; /* Hide without removing layout space */
+    opacity: 0;
+    height: 60px;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0;
+  }
+  
+  
+  /* After scroll: show nav logo, hide hero logo */
+  .main-header.scrolled .nav-logo {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  .main-header.scrolled ~ .hero .hero-logo {
+    display: none;
+  }
+  
+
+/* Placeholder keeps logo space in nav after scroll */
+.logo-placeholder {
+    width: 130px;
+    height: 60px;
 }
+
+
+
+
 
 /* Logo shrink on scroll */
 .main-header.scrolled .logo {
@@ -225,10 +256,23 @@ p, a, li, span, button {
     .nav-links a {
         font-size: 1.5rem;
     }
-
-    .logo {
-        height: 60px; /* Slightly smaller logo for mobile */
+    .hero-logo {
+        top: 40px;
+        height: 100px;
     }
+    
+    .main-header.scrolled .hero-logo {
+        top: 10px;
+        left: 20px;
+        height: 50px;
+    }
+    
+    .logo-placeholder {
+        width: 100px;
+        height: 50px;
+    }
+    
+    
 }
 
 
@@ -303,12 +347,13 @@ p, a, li, span, button {
 /* Layout Container */
 .who-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
+    flex-wrap: wrap;
+    align-items: stretch;
     width: 100%;
-    gap: 2rem;
+    min-height: 100%;
+    padding: 0;
 }
+
 
 /* Left Side: Text */
 .who-text {
@@ -375,34 +420,10 @@ p, a, li, span, button {
     position: relative;
 }
 
-/* Floating Icons */
-.floating-element i {
-    font-size: 2.5rem;
-    color: var(--background-color); /* Make icon color contrast with red */
-    margin-bottom: 8px;
-}
 
-/* Floating Title */
-.floating-element h3 {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: var(--background-color);
-    margin-bottom: 8px;
-}
 
-/* Floating Text */
-.floating-element p {
-    font-size: 1rem;
-    color: var(--background-color);
-    opacity: 0.8;
-    line-height: 1.5;
-}
 
-/* Glowing Hover Effect */
-.floating-element:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0px 15px 40px rgba(176, 39, 48, 0.5); /* Match red glow */
-}
+
 
 /* Floating Animation */
 @keyframes floatUp {
@@ -417,26 +438,17 @@ p, a, li, span, button {
     }
 }
 
-/* Apply Floating Effect */
-.floating-element:nth-child(1) {
-    animation: floatUp 4s ease-in-out infinite;
-}
-.floating-element:nth-child(2) {
-    animation: floatUp 4s ease-in-out infinite 0.5s;
-}
-.floating-element:nth-child(3) {
-    animation: floatUp 4s ease-in-out infinite 1s;
-}
 
-/* Responsive Design */
+
+/* Responsie Design */
 @media (max-width: 992px) {
     .who-container {
         flex-direction: column;
-        text-align: center;
     }
 
     .who-text {
         text-align: center;
+        padding: 2rem;
     }
 
     .who-text h2 {
@@ -447,25 +459,16 @@ p, a, li, span, button {
         font-size: 1.1rem;
     }
 
-    .floating-container {
-        gap: 20px;
+    .who-image-full {
+        width: 100%;
+        height: auto;
     }
 
-    .floating-element {
-        width: 170px; /* Smaller for mobile */
-        height: 170px; /* Smaller for mobile */
-    }
-
-    .floating-element i {
-        font-size: 2rem; /* Adjust icon size for mobile */
-    }
-
-    .floating-element h3 {
-        font-size: 1.2rem;
-    }
-
-    .floating-element p {
-        font-size: 0.9rem;
+    .who-image-full img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: cover;
     }
 }
 
@@ -780,33 +783,22 @@ p, a, li, span, button {
     opacity: 0.6; /* Slight transparency for subtlety */
 }
 
-/* Location Section */
+/* Centered Location Text */
 .location-section {
-    background-color: var(--primary-color); /* Alternating Secondary Background */
+    background-color: var(--primary-color);
     color: var(--background-color);
     padding: 6rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
-/* Layout Container */
-.location-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    width: 100%;
-    gap: 2rem;
+.location-text-only {
+    max-width: 700px;
 }
 
-/* Left Side: Text */
-.location-text {
-    flex: 1;
-    text-align: left;
-}
-
-.location-text h2 {
+.location-text-only h2 {
     font-size: 3rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -814,15 +806,14 @@ p, a, li, span, button {
     line-height: 1.2;
 }
 
-.location-text h2 span {
-    color: var(--primary-color); /* Red Highlight */
+.location-text-only h2 span {
+    color: var(--secondary-color);
 }
 
-.location-text p {
+.location-text-only p {
     font-size: 1.3rem;
     line-height: 1.8;
-    margin-bottom: 1.5rem;
-    max-width: 600px;
+    margin-bottom: 2rem;
 }
 
 /* Animated Google Map */
@@ -1252,16 +1243,20 @@ p, a, li, span, button {
   }
   
   /* Hero Slogan */
-  .hero-slogan {
-    font-family: "Playfair Display", serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--background-color); /* Beige text */
+/* Hero Slogan */
+/* Hero Slogan */
+.hero-slogan {
+    font-family: 'Signature', cursive !important;
+    font-size: 3.5rem;
+    font-weight: normal;
+    color: var(--background-color);
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-transform: none;
   }
   
+
+
   /* Responsive */
   @media (max-width: 768px) {
     .hero {
