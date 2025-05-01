@@ -3,6 +3,10 @@
 
 /* Import Lato */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+
+
 
 
 
@@ -1246,14 +1250,18 @@ p, a, li, span, button {
 /* Hero Slogan */
 /* Hero Slogan */
 .hero-slogan {
-    font-family: 'Signature', cursive !important;
-    font-size: 3.5rem;
+    font-family: 'Satisfy' !important;
+
+
+    font-size: 3.2rem;
     font-weight: normal;
     color: var(--background-color);
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     text-transform: none;
   }
+  
+  
   
 
 
@@ -1266,7 +1274,10 @@ p, a, li, span, button {
     .hero-slogan {
       font-size: 2rem;
       letter-spacing: 1px;
-      font-family: 'Signature', cursive !important;
+      font-family: 'Satisfy' !important;
+
+
+
     }
   }
   
