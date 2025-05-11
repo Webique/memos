@@ -1256,7 +1256,7 @@ p, a, li, span, button {
   /* Hero Slogan */
 /* Hero Slogan */
 /* Hero Slogan */
-/* Hero Slogan (Desktop) */
+/* Hero Slogan (Desktop and Laptop) */
 .hero-slogan {
     font-family: 'TheSignature', cursive !important;
     font-size: 3.2rem;
@@ -1265,20 +1265,21 @@ p, a, li, span, button {
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
     letter-spacing: 0.5px;
     text-transform: none;
-    white-space: nowrap; /* Prevents text wrapping */
+    white-space: nowrap; /* Force one line */
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: clip;
   }
   
   /* Responsive - Adjust for Mobile */
   @media (max-width: 768px) {
     .hero-slogan {
-      font-size: 2rem; /* Slightly smaller on mobile */
+      font-size: 2rem; /* Adjusted size for mobile */
       letter-spacing: 0.2px;
-      white-space: nowrap; /* Force one line */
-      max-width: 90vw; /* Ensure it doesn't overflow */
+      white-space: nowrap; /* One line only */
       overflow: hidden;
-      text-overflow: ellipsis;
+      text-overflow: clip; /* No ellipsis, full text shows */
+      max-width: 100%; /* Ensure it doesn't overflow */
+      text-align: center;
     }
   }
   
