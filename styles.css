@@ -130,79 +130,98 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, button, input, textarea, label {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
-/* Logo Section */
-/* Logo in hero before scroll */
-/* Hero Logo: center above slogan, visible before scroll */
-.hero-logo {
+/* Main Header - Fully Transparent Navbar (No Blur) */
+.main-header {
+    position: fixed;
+    width: 100%;
+    background-color: transparent !important;
+    backdrop-filter: none !important; /* Fully clear, no blur */
+    box-shadow: none !important;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    padding: 0.5rem 2rem;
+  }
+  
+  /* Logo Section - Hero Logo (Large) */
+  .hero-logo {
     display: block;
     margin: 0 auto 30px auto;
     height: 130px;
     transition: all 0.4s ease;
   }
   
-  /* Nav Logo: hidden before scroll */
+  /* Navbar Logo (Small) - Initially Hidden */
   .nav-logo {
-    visibility: hidden; /* Hide without removing layout space */
+    visibility: hidden;
     opacity: 0;
     height: 60px;
     transition: opacity 0.3s ease;
     flex-shrink: 0;
   }
   
-  
-  /* After scroll: show nav logo, hide hero logo */
+  /* After Scroll: Show Navbar Logo, Hide Hero Logo */
   .main-header.scrolled .nav-logo {
     visibility: visible;
     opacity: 1;
   }
   
-  
   .main-header.scrolled ~ .hero .hero-logo {
     display: none;
   }
   
-
-/* Placeholder keeps logo space in nav after scroll */
-.logo-placeholder {
+  /* Placeholder keeps logo space in nav after scroll */
+  .logo-placeholder {
     width: 130px;
     height: 60px;
-}
-
-
-
-
-
-/* Logo shrink on scroll */
-.main-header.scrolled .logo {
+  }
+  
+  /* Logo Shrink on Scroll */
+  .main-header.scrolled .logo {
     height: 60px;
-}
-
-/* Navigation Menu */
-.nav-links {
+  }
+  
+  /* Navigation Menu */
+  .nav-links {
     list-style: none;
     display: flex;
     gap: 2rem;
     transition: all 0.3s ease-in-out;
-}
-
-.nav-links li {
+  }
+  
+  .nav-links li {
     position: relative;
-}
-
-.nav-links a {
+  }
+  
+  .nav-links a {
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 800; /* Bolder text */
     letter-spacing: 0.5px;
     color: var(--primary-color);
     transition: all 0.3s ease-in-out;
-}
-
-.nav-links a:hover {
+  }
+  
+  .nav-links a:hover {
     color: var(--hover-color);
     text-decoration: underline;
-}
+  }
+  
+  /* Transparent Navbar Before Scroll */
+  .main-header.transparent {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  
+  /* Solid Red Navbar After Scroll */
+  .main-header.scrolled {
+    background-color: #B02730 !important; /* Solid red when scrolled */
+    backdrop-filter: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
+  }
+  
 
 /* Typography Enhancements */
 h1, h2, h3, h4, h5, h6 {
