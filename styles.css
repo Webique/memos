@@ -1256,14 +1256,30 @@ p, a, li, span, button {
   /* Hero Slogan */
 /* Hero Slogan */
 /* Hero Slogan */
+/* Hero Slogan (Desktop) */
 .hero-slogan {
-    font-family: 'TheSignature' !important;
+    font-family: 'TheSignature', cursive !important;
     font-size: 3.2rem;
     font-weight: normal;
-    color: var(--background-color);
+    color: #FFFFFF; /* White Text */
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
     letter-spacing: 0.5px;
     text-transform: none;
+    white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Responsive - Adjust for Mobile */
+  @media (max-width: 768px) {
+    .hero-slogan {
+      font-size: 2rem; /* Slightly smaller on mobile */
+      letter-spacing: 0.2px;
+      white-space: nowrap; /* Force one line */
+      max-width: 90vw; /* Ensure it doesn't overflow */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
   
   
