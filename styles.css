@@ -1211,18 +1211,12 @@ p, a, li, span, button {
     justify-content: center;
     text-align: center;
     padding: 2rem;
+    background-size: cover; /* Ensures full image clarity */
   }
   
-  /* Optional dark overlay for better contrast */
+  /* Remove any dark overlay */
   .hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.45);
-    z-index: 1;
+    content: none; /* No overlay, clear background */
   }
   
   /* Hero Content */
@@ -1230,6 +1224,34 @@ p, a, li, span, button {
     position: relative;
     z-index: 2;
   }
+  
+  /* Hero Slogan */
+  .hero-slogan {
+    font-family: 'TheSignature', cursive !important;
+    font-size: 3.2rem;
+    font-weight: normal;
+    color: #FFFFFF; /* White Text */
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.5px;
+    text-transform: none;
+    white-space: nowrap;
+  }
+  
+  /* Responsive - Adjust for Mobile */
+  @media (max-width: 768px) {
+    .hero {
+      height: 70vh; /* Slightly shorter on mobile */
+    }
+  
+    .hero-slogan {
+      font-size: 2rem; /* Adjusted size for mobile */
+      letter-spacing: 0.2px;
+      text-align: center;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+  }
+  
   
   /* Hero Slogan */
 /* Hero Slogan */
