@@ -292,7 +292,7 @@ p, a, li, span, button {
     position: relative;
     width: 100%;
     height: 90vh; /* Almost full screen */
-    background: url('hero.png') center/cover no-repeat;
+    background: url('drawing.PNG') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
