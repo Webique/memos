@@ -1349,3 +1349,16 @@ p, a, li, span, button {
     }
   }
   
+  @media (max-width: 768px) {
+    .hero + .section-divider {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .who-we-are {
+      margin-top: 0px !important;
+      padding-top: 0 !important;
+    }
+  }
+  
