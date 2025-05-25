@@ -1244,16 +1244,22 @@ p, a, li, span, button {
     z-index: 2;
   }
   
-  /* Hero Slogan */
   .hero-slogan {
     font-family: 'TheSignature', cursive !important;
     font-size: 3.2rem;
     font-weight: normal;
-    color: #FFFFFF; /* White Text */
+    color: #FFFFFF;
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.4);
     letter-spacing: 0.5px;
     text-transform: none;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    position: absolute;
+    top: 85%; /* ⬅️ slightly higher than 50% */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
   }
   
   /* Responsive - Adjust for Mobile */
