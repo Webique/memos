@@ -1339,4 +1339,13 @@ p, a, li, span, button {
       white-space: normal !important; /* Allow wrapping */
     }
   }
+  @media (max-width: 768px) {
+    p {
+      font-size: 1.05rem !important;
+      line-height: 1.75 !important;
+      text-align: justify !important;
+      margin-bottom: 1.2rem !important;
+      padding: 0 1rem; /* Optional: slight side padding */
+    }
+  }
   
