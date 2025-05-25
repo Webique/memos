@@ -1361,4 +1361,16 @@ p, a, li, span, button {
       padding-top: 0 !important;
     }
   }
+  @media (max-width: 768px) {
+    .hero-slogan {
+      font-size: clamp(1.5rem, 6vw, 2.1rem); /* Scales between small and readable */
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+      max-width: 100vw;
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+  }
   
