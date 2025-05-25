@@ -1329,3 +1329,14 @@ p, a, li, span, button {
     }
   }
   
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 2.2rem !important; /* Slightly larger */
+      font-weight: 900 !important;  /* Bolder */
+      line-height: 1.3 !important;
+      text-align: center; /* Optional: center-align on mobile */
+      white-space: normal !important; /* Allow wrapping */
+    }
+  }
+  
