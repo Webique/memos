@@ -1377,4 +1377,16 @@ p, a, li, span, button {
   }
   
   
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.8rem !important;        /* Slightly smaller size */
+      font-weight: 1000 !important;        /* Strong boldness (beyond 900) */
+      letter-spacing: -0.5px !important;   /* Slightly tighter spacing for stronger feel */
+      line-height: 1.2 !important;
+      text-align: center !important;
+      margin-bottom: 1rem !important;
+    }
+  }
+  
+  
   
